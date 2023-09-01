@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
-import os
 from babel.numbers import format_currency
 
 sns.set(style='dark')
@@ -22,7 +21,7 @@ def create_rfm_df(df):
     
     return rfm_df
 
-all_df = pd.read_csv(os.path.abspath("all_data.csv"))
+all_df = pd.read_csv("Dashboard/all_data.csv")
 datetime_columns = ["order_purchase_timestamp", "order_approved_at", "order_delivered_carrier_date", "order_delivered_customer_date", "order_estimated_delivery_date"]
 all_df.sort_values(by="order_purchase_timestamp", inplace=True)
 all_df.reset_index(inplace=True)
